@@ -1,0 +1,33 @@
+{
+  "train_batch_size": "auto",
+  "train_micro_batch_size_per_gpu": "auto",
+  "gradient_accumulation_steps": "auto",
+
+  "bf16": {
+    "enabled": true
+  },
+
+  "zero_optimization": {
+    "stage": 2,
+    "offload_optimizer": {
+      "device": "cpu",
+      "pin_memory": true
+    },
+    "contiguous_gradients": true,
+    "overlap_comm": false,
+    "reduce_bucket_size": 5e8,
+    "allgather_bucket_size": 5e8
+  },
+
+    "optimizer": {
+    "type": "AdamW",
+    "params": {
+        "lr": "auto",
+        "betas": "auto",
+        "eps": "auto",
+        "weight_decay": "auto"
+    }
+  },
+  "steps_per_print": 100,
+  "wall_clock_breakdown": false
+}
